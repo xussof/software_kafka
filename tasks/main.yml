@@ -1,0 +1,18 @@
+#- name: Downloading kafka
+#  become: true
+#  get_url:
+#    url: https://archive.apache.org/dist/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz
+#    dest: /opt/
+
+#- name: Extract file
+#  become: true
+#  unarchive:
+#    src: /opt/kafka_2.11-0.9.0.1.tgz
+#    dest: /opt/kafka
+
+- name: Unarchive a file that needs to be downloaded (added in 2.0)
+  become: true
+  unarchive:
+    src: https://archive.apache.org/dist/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz
+    dest: /opt
+    remote_src: yes
